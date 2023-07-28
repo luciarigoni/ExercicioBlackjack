@@ -8,6 +8,7 @@ public class GameThreads implements Runnable {
 
     @Override
     public void run() {
+        try {
         Random random = new Random();
         int n3 = random.nextInt(naipes.length);
         String naipe = naipes[n3];
@@ -65,6 +66,10 @@ public class GameThreads implements Runnable {
         System.out.println("O total de pontos do jogador é: " + totalDePontos);
         if (totalDePontos == 21) {
             System.out.println("Parabéns, você ganhou!");
+        }
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
